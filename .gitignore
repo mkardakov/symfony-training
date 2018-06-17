@@ -1,0 +1,12 @@
+vendor
+.idea
+/var/cache/*
+/var/logs/*
+/var/sessions/*
+/var/bootstrap.php.cache
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+!var/sessions/.gitkeep
+/app/config/parameters.yml
+/web/bundles/
+phpunit.xml
