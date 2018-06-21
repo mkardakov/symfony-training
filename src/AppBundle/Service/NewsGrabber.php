@@ -40,7 +40,7 @@ class NewsGrabber
     public function __construct(Feed ...$feeds)
     {
         $this->feeds = $feeds;
-        $this->cache = new \Symfony\Component\Cache\Simple\FilesystemCache();
+        $this->cache = new \Symfony\Component\Cache\Simple\NullCache();
     }
 
 

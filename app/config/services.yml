@@ -31,12 +31,16 @@ services:
 
    # add more services, or override services that need manual wiring
     GuzzleHttp\ClientInterface: "@eight_points_guzzle.client.news"
-    Psr\SimpleCache\CacheInterface: "@eight_points_guzzle.client.news"
-    Symfony\Component\Cache\Simple\FilesystemCache: "@cache.filesystem"
+    Psr\SimpleCache\CacheInterface:
+        class:     'Psr\SimpleCache\CacheInterface'
+        factory:   'AppBundle\Service\Cache\CacheFactory:create'
+        arguments: ['Filesystem']
 
     AppBundle\Service\NewsGrabber:
         arguments:
             - '@AppBundle\Service\Feed\Dumskaya'
             - '@AppBundle\Service\Feed\Mayak'
             - '@AppBundle\Service\Feed\Z048'
+        calls:
+            - [setCache, ['@Psr\SimpleCache\CacheInterface']]
 

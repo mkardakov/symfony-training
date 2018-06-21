@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="AppBundle\Repository\CoordsRepository" name="AppBundle\Entity\Coords">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="deviceId" type="integer" column="deviceId" unique="true"/>
+    <field name="timestamp" type="datetime" column="timestamp"/>
+    <field name="lat" type="float" column="lat"/>
+    <field name="lon" type="float" column="lon"/>
+    <field name="speed" type="float" column="speed"/>
+    <field name="bearing" type="float" column="bearing"/>
+    <field name="altitude" type="float" column="altitude"/>
+    <field name="accuracy" type="float" column="accuracy"/>
+    <field name="batt" type="float" column="batt"/>
+  </entity>
+</doctrine-mapping>
